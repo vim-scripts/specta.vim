@@ -1,0 +1,34 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=4519
+
+specta.vim
+Syntax highlighting for the specta/expecta Objective-C test frameworks.
+
+Installation
+
+With Vundle
+
+Add:
+
+Bundle 'Keithbsmiley/specta.vim'
+
+To your .vimrc and run BundleInstall from within vim or vim +BundleInstall +qall from the command line
+
+With Pathogen
+
+cd ~/.vim/bundle git clone https://github.com/Keithbsmiley/specta.vim.git
+
+Setup
+
+You can set the syntax for a file manually with set syntax=specta I recommend you do this in your .vimrc detecting your typical test filename, for example in mine I use:
+
+autocmd BufReadPost,BufWrite *Test.m set filetype=specta
+
+This changes the filetype to specta whenever a file named *Test.m is read or written (written sets the syntax correctly for newly created files)
+
+I also recommend you install cocoa.vim which adds some Objective-C highlighting features (automatically used by specta.vim if installed).
+
+Known issues
+
+Right parens ) at the end of describe blocks show up as errors
+Highlighting inside other blocks doesnt work (this is because cocoa.vim messes with the block highlighting behavior)
+If you find any other issues or have any recommendations on how to solve these let me know via issues/pull requests
